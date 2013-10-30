@@ -102,16 +102,16 @@ DiJetVarProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
      CaloJet correctedJet = *it;
      if(correctHLTJets_)
        {
-        std::cout << "jet pT=" << it->energy() << std::endl;
+        std::cout << "jet pT=" << it->pt() << std::endl;
         pileupcorr= 1-((*dsRho)*correctedJet.jetArea())/correctedJet.pt();
         std::cout << "pileupcorr=" << pileupcorr << std::endl;
         if(pileupcorr > 0. || pileupcorr < 1.) correctedJet.scaleEnergy(pileupcorr);
-        std::cout << "jet pT=" << correctedJet.energy() << std::endl;
+        std::cout << "jet pT=" << correctedJet.pt() << std::endl;
 
         scaleL2L3  = corrector->correction(correctedJet,iEvent,iSetup);
         std::cout << "JEC Scale=" << scaleL2L3 <<std::endl;
         correctedJet.scaleEnergy(scaleL2L3);
-        std::cout << "jet pT=" << correctedJet.energy() << std::endl;
+        std::cout << "jet pT=" << correctedJet.pt() << std::endl;
        }
 
       currentJet.SetPtEtaPhiM(correctedJet.pt(),correctedJet.eta(),correctedJet.phi(),correctedJet.mass());
