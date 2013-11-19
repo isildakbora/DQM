@@ -21,7 +21,7 @@
 #include <cmath>
 
 //------------------------------------------------------------------------------
-// A simple constructor which takes as inoput only the name of the PF jet collection
+// A simple constructor which takes as input only the name of the PF jet collection
 DiJetVarAnalyzer::DiJetVarAnalyzer( const edm::ParameterSet & conf ):
   ScoutingAnalyzerBase(conf),
   jetCollectionTag_        (conf.getUntrackedParameter<edm::InputTag>("jetCollectionTag")),
@@ -38,7 +38,7 @@ DiJetVarAnalyzer::DiJetVarAnalyzer( const edm::ParameterSet & conf ):
   maxHADfraction_          (conf.getParameter<double>("maxHADfraction")),
   HLTpathMain_             (triggerExpression::parse( conf.getParameter<std::string>("HLTpathMain") )),
   HLTpathMonitor_          (triggerExpression::parse( conf.getParameter<std::string>("HLTpathMonitor") )),
-  triggerConfiguration_           (conf.getParameterSet("triggerConfiguration"))
+  triggerConfiguration_    (conf.getParameterSet("triggerConfiguration"))
 {
 }
 
@@ -199,13 +199,13 @@ void DiJetVarAnalyzer::analyze( const edm::Event & iEvent, const edm::EventSetup
 
       // Other Deta cuts
       if( DeltaEtaJJWide < 4.0 )
-	pass_deta_L4=true;
+	       pass_deta_L4=true;
 
       if( DeltaEtaJJWide < 3.0 )
-	pass_deta_L3=true;
+	       pass_deta_L3=true;
 
       if( DeltaEtaJJWide < 2.0 )
-	pass_deta_L2=true;
+	       pass_deta_L2=true;
       
     }
 
@@ -217,25 +217,25 @@ void DiJetVarAnalyzer::analyze( const edm::Event & iEvent, const edm::EventSetup
       reco::CaloJetCollection::const_iterator thisJet = calojets_handle->begin();
       //cout << "== thisJet1: " << thisJet->pt() << " " << thisJet->eta() << " " << thisJet->phi() << endl;
       if( thisJet->energyFractionHadronic()>maxHADfraction_ || thisJet->emEnergyFraction()>maxEMfraction_ )
-	pass_JetIDtwojets=false;
+	       pass_JetIDtwojets=false;
 
       //   second jet
       ++thisJet;
       //cout << "== thisJet2: " << thisJet->pt() << " " << thisJet->eta() << " " << thisJet->phi() << endl;
       if( thisJet->energyFractionHadronic()>maxHADfraction_ || thisJet->emEnergyFraction()>maxEMfraction_ )
-	pass_JetIDtwojets=false;
+	       pass_JetIDtwojets=false;
     }      
 
   // Met filter
   if( calomet_handle.isValid() && calometClean_handle.isValid() )
     {
       if( fabs ( (calomet_handle->front()).pt() - (calometClean_handle->front()).pt() ) > 0.1 )
-	pass_metFilter=false;
+	       pass_metFilter=false;
     }
   
   // Full selection (no deta cut)
   if( pass_nocut && pass_twowidejets && pass_etaptcuts && pass_JetIDtwojets && pass_dphi && pass_metFilter )
-    pass_fullsel_NOdeta=true;
+      pass_fullsel_NOdeta=true;
 
   // Full selection (various deta cuts)
   if( pass_nocut && pass_twowidejets && pass_etaptcuts && pass_JetIDtwojets && pass_dphi && pass_metFilter && pass_deta_L4 )
@@ -292,19 +292,19 @@ void DiJetVarAnalyzer::analyze( const edm::Event & iEvent, const edm::EventSetup
       m_DetajjWide->Fill(DeltaEtaJJWide);
 
       if( DeltaEtaJJWide >= 0.0 && DeltaEtaJJWide < 0.5 )
-	m_MjjWide_deta_0p0_0p5->Fill(MJJWide);
+	       m_MjjWide_deta_0p0_0p5->Fill(MJJWide);
       if( DeltaEtaJJWide >= 0.5 && DeltaEtaJJWide < 1.0 )
-	m_MjjWide_deta_0p5_1p0->Fill(MJJWide);
+	       m_MjjWide_deta_0p5_1p0->Fill(MJJWide);
       if( DeltaEtaJJWide >= 1.0 && DeltaEtaJJWide < 1.5 )
-	m_MjjWide_deta_1p0_1p5->Fill(MJJWide);
+	       m_MjjWide_deta_1p0_1p5->Fill(MJJWide);
       if( DeltaEtaJJWide >= 1.5 && DeltaEtaJJWide < 2.0 )
-	m_MjjWide_deta_1p5_2p0->Fill(MJJWide);
+	       m_MjjWide_deta_1p5_2p0->Fill(MJJWide);
       if( DeltaEtaJJWide >= 2.0 && DeltaEtaJJWide < 2.5 )
-	m_MjjWide_deta_2p0_2p5->Fill(MJJWide);
+	       m_MjjWide_deta_2p0_2p5->Fill(MJJWide);
       if( DeltaEtaJJWide >= 2.5 && DeltaEtaJJWide < 3.0 )
-	m_MjjWide_deta_2p5_3p0->Fill(MJJWide);
+	       m_MjjWide_deta_2p5_3p0->Fill(MJJWide);
       if( DeltaEtaJJWide >= 3.0 )
-	m_MjjWide_deta_3p0_inf->Fill(MJJWide);
+	       m_MjjWide_deta_3p0_inf->Fill(MJJWide);
       
       // 2D histograms
       m_DetajjVsMjjWide->Fill(MJJWide,DeltaEtaJJWide);            
