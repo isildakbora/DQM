@@ -80,7 +80,7 @@ DiJetVarProducer::DiJetVarProducer(const edm::ParameterSet& conf) :
 
   // 1D histograms
   m_cutFlow = fs->make<TH1F>("h1_cutFlow","Cut Flow",7, 0., 7.);
-  m_cutFlow->Sumw2();
+  //m_cutFlow->Sumw2();
   m_cutFlow->GetXaxis()->SetBinLabel(1,"No cut");
   m_cutFlow->GetXaxis()->SetBinLabel(2,"N(WideJets)>=2");
   m_cutFlow->GetXaxis()->SetBinLabel(3,"|#eta|<2.5 , pT>30");
@@ -92,202 +92,202 @@ DiJetVarProducer::DiJetVarProducer(const edm::ParameterSet& conf) :
   m_MjjWide_finalSel = fs->make<TH1F>("h1_MjjWide_finalSel","M_{jj} WideJets (final selection)", 8000, 0., 8000.);
   m_MjjWide_finalSel->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_finalSel->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_finalSel->Sumw2();
+  //m_MjjWide_finalSel->Sumw2();
 
   m_MjjWide_finalSel_varbin = fs->make<TH1F>("h1_MjjWide_finalSel_varbin","M_{jj} WideJets (final selection)",N_mass_bins, massBins);
   m_MjjWide_finalSel_varbin->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_finalSel_varbin->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_finalSel_varbin->Sumw2();
+  //m_MjjWide_finalSel_varbin->Sumw2();
 
   m_MjjWide_finalSel_WithoutNoiseFilter = fs->make<TH1F>( "h1_MjjWide_finalSel_WithoutNoiseFilter","M_{jj} WideJets (final selection, without noise filters)",8000, 0., 8000.);
   m_MjjWide_finalSel_WithoutNoiseFilter->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_finalSel_WithoutNoiseFilter->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_finalSel_WithoutNoiseFilter->Sumw2();
+  //m_MjjWide_finalSel_WithoutNoiseFilter->Sumw2();
 
 
   m_MjjWide_finalSel_WithoutNoiseFilter_varbin = fs->make<TH1F>("h1_MjjWide_finalSel_WithoutNoiseFilter_varbin", "M_{jj} WideJets (final selection, without noise filters)", N_mass_bins, massBins);
   m_MjjWide_finalSel_WithoutNoiseFilter_varbin->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_finalSel_WithoutNoiseFilter_varbin->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_finalSel_WithoutNoiseFilter_varbin->Sumw2();
+  //m_MjjWide_finalSel_WithoutNoiseFilter_varbin->Sumw2();
                     
   m_MjjWide_deta_0p0_0p5 = fs->make<TH1F>("h1_MjjWide_deta_0p5_1p0", "M_{jj} WideJets (0.0<=#Delta#eta<0.5)", 8000, 0., 8000.);
   m_MjjWide_deta_0p0_0p5->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_0p0_0p5->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_0p0_0p5->Sumw2();
+  //m_MjjWide_deta_0p0_0p5->Sumw2();
 
   m_MjjWide_deta_0p5_1p0 = fs->make<TH1F>("h1_MjjWide_deta_0p5_1p0", "M_{jj} WideJets (0.5<=#Delta#eta<1.0)", 8000, 0., 8000.);
   m_MjjWide_deta_0p5_1p0->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_0p5_1p0->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_0p5_1p0->Sumw2();
+  //m_MjjWide_deta_0p5_1p0->Sumw2();
 
   m_MjjWide_deta_1p0_1p5 = fs->make<TH1F>("h1_MjjWide_deta_1p0_1p5", "M_{jj} WideJets (1.0<=#Delta#eta<1.5)", 8000, 0., 8000.);
   m_MjjWide_deta_1p0_1p5->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_1p0_1p5->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_1p0_1p5->Sumw2();
+  //m_MjjWide_deta_1p0_1p5->Sumw2();
 
   m_MjjWide_deta_1p5_2p0 = fs->make<TH1F>("h1_MjjWide_deta_1p5_2p0", "M_{jj} WideJets (1.5<=#Delta#eta<2.0)", 8000, 0., 8000.);
   m_MjjWide_deta_1p5_2p0->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_1p5_2p0->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_1p5_2p0->Sumw2();
+  //m_MjjWide_deta_1p5_2p0->Sumw2();
 
   m_MjjWide_deta_2p0_2p5 = fs->make<TH1F>("h1_MjjWide_deta_2p0_2p5", "M_{jj} WideJets (2.0<=#Delta#eta<2.5)", 8000, 0., 8000.);
   m_MjjWide_deta_2p0_2p5->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_2p0_2p5->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_2p0_2p5->Sumw2();
+  //m_MjjWide_deta_2p0_2p5->Sumw2();
 
   m_MjjWide_deta_2p5_3p0 = fs->make<TH1F>("h1_MjjWide_deta_2p5_3p0", "M_{jj} WideJets (2.5<=#Delta#eta<3.0)", 8000, 0., 8000.);
   m_MjjWide_deta_2p5_3p0->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_2p5_3p0->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_2p5_3p0->Sumw2();
+  //m_MjjWide_deta_2p5_3p0->Sumw2();
 
   m_MjjWide_deta_3p0_inf = fs->make<TH1F>("h1_MjjWide_deta_3p0_inf", "M_{jj} WideJets (3.0<=#Delta#eta<#infty)", 8000, 0., 8000.);
   m_MjjWide_deta_3p0_inf->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_deta_3p0_inf->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_deta_3p0_inf->Sumw2();
+  //m_MjjWide_deta_3p0_inf->Sumw2();
 
   m_MjjWide_den_NOdeta = fs->make<TH1F>("h1_MjjWide_den_NOdeta","HLT Efficiency Studies (no deta cut)", 400, 0., 2000.);
   m_MjjWide_den_NOdeta->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_den_NOdeta->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den_NOdeta->Sumw2();
+  //m_MjjWide_den_NOdeta->Sumw2();
   
   m_MjjWide_num_NOdeta = fs->make<TH1F>("h1_MjjWide_num_NOdeta", "HLT Efficiency Studies (no deta cut)", 400, 0., 2000.);
   m_MjjWide_num_NOdeta->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_num_NOdeta->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_num_NOdeta->Sumw2();
+  //m_MjjWide_num_NOdeta->Sumw2();
 
   m_MjjWide_den_detaL4 = fs->make<TH1F>("h1_MjjWide_den_detaL4","HLT Efficiency Studies (deta cut < 4.0)", 400, 0., 2000.);
   m_MjjWide_den_detaL4->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_den_detaL4->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den_detaL4->Sumw2();
+  //m_MjjWide_den_detaL4->Sumw2();
 
   m_MjjWide_num_detaL4 = fs->make<TH1F>("h1_MjjWide_num_detaL4", "HLT Efficiency Studies (deta cut < 4.0)", 400, 0., 2000.);
   m_MjjWide_num_detaL4->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_num_detaL4->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_num_detaL4->Sumw2();         
+  //m_MjjWide_num_detaL4->Sumw2();         
 
   m_MjjWide_den_detaL3 = fs->make<TH1F>( "h1_MjjWide_den_detaL3", "HLT Efficiency Studies (deta cut < 3.0)", 400, 0., 2000.);
   m_MjjWide_den_detaL3->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_den_detaL3->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den_detaL3->Sumw2();
+  //m_MjjWide_den_detaL3->Sumw2();
   
   m_MjjWide_num_detaL3 = fs->make<TH1F>("h1_MjjWide_num_detaL3", "HLT Efficiency Studies (deta cut < 3.0)", 400, 0., 2000.);
   m_MjjWide_num_detaL3->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_num_detaL3->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_num_detaL3->Sumw2();
+  //m_MjjWide_num_detaL3->Sumw2();
 
   m_MjjWide_den_detaL2 = fs->make<TH1F>("h1_MjjWide_den_detaL2", "HLT Efficiency Studies (deta cut < 2.0)", 400, 0., 2000.);
   m_MjjWide_den_detaL2->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_den_detaL2->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den_detaL2->Sumw2();
+  //m_MjjWide_den_detaL2->Sumw2();
   
   m_MjjWide_num_detaL2 = fs->make<TH1F>("h1_MjjWide_num_detaL2", "HLT Efficiency Studies (deta cut < 2.0)", 400, 0., 2000.);
   m_MjjWide_num_detaL2->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_num_detaL2->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_num_detaL2->Sumw2(); 
+  //m_MjjWide_num_detaL2->Sumw2(); 
 
   m_MjjWide_den = fs->make<TH1F>("h1_MjjWide_den", "HLT Efficiency Studies (default deta cut)", 400, 0., 2000.);
   m_MjjWide_den->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_den->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den->Sumw2();
+  //m_MjjWide_den->Sumw2();
 
   m_MjjWide_num = fs->make<TH1F>("h1_MjjWide_num", "HLT Efficiency Studies (default deta cut)", 400, 0., 2000.);
   m_MjjWide_num->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_MjjWide_num->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_num->Sumw2();
+  //m_MjjWide_num->Sumw2();
 
   m_DetajjWide_finalSel = fs->make<TH1F>("h1_DetajjWide_finalSel", "#Delta#eta_{jj} WideJets (final selection)", 100, 0., 5.);
   m_DetajjWide_finalSel->GetXaxis()->SetTitle("#Delta#eta_{jj} WideJets");
   m_DetajjWide_finalSel->GetYaxis()->SetTitle("Number of events");
-  m_MjjWide_den_detaL4->Sumw2();
+  //m_MjjWide_den_detaL4->Sumw2();
 
   m_DetajjWide = fs->make<TH1F>("h1_DetajjWide", "#Delta#eta_{jj} WideJets (final selection except #Delta#eta cut)", 100, 0., 5.);
   m_DetajjWide->GetXaxis()->SetTitle("#Delta#eta_{jj} WideJets");
   m_DetajjWide->GetYaxis()->SetTitle("Number of events");
-  m_DetajjWide->Sumw2();
+  //m_DetajjWide->Sumw2();
 
   m_DphijjWide_finalSel = fs->make<TH1F>("h1_DphijjWide_finalSel", "#Delta#phi_{jj} WideJets (final selection)", 100, 0., TMath::Pi()+0.0001);
   m_DphijjWide_finalSel->GetXaxis()->SetTitle("#Delta#phi_{jj} WideJets [rad.]");
   m_DphijjWide_finalSel->GetYaxis()->SetTitle("Number of events");
-  m_DphijjWide_finalSel->Sumw2();
+  //m_DphijjWide_finalSel->Sumw2();
 
 
   m_selJets_pt = fs->make<TH1F>("h1_selJets_pt", "Selected CaloJets", 500, 0., 5000.);
   m_selJets_pt->GetXaxis()->SetTitle("Jet Pt [GeV]");
   m_selJets_pt->GetYaxis()->SetTitle("Number of events");
-  m_selJets_pt->Sumw2();
+  //m_selJets_pt->Sumw2();
 
   m_selJets_eta = fs->make<TH1F>("h1_selJets_eta", "Selected CaloJets", 100, -5., 5.);
   m_selJets_eta->GetXaxis()->SetTitle("#eta");
   m_selJets_eta->GetYaxis()->SetTitle("Number of events");
-  m_selJets_eta->Sumw2();
+  //m_selJets_eta->Sumw2();
 
   m_selJets_phi = fs->make<TH1F>("h1_selJets_phi", "Selected CaloJets", 100, -TMath::Pi(), TMath::Pi());
   m_selJets_phi->GetXaxis()->SetTitle("#phi (rad.)");
   m_selJets_phi->GetYaxis()->SetTitle("Number of events");
-  m_selJets_phi->Sumw2();
+  //m_selJets_phi->Sumw2();
 
   m_selJets_hadEnergyFraction = fs->make<TH1F>("h1_selJets_hadEnergyFraction", "Selected CaloJets", 110, 0., 1.1);
   m_selJets_hadEnergyFraction->GetXaxis()->SetTitle("HAD Energy Fraction");
   m_selJets_hadEnergyFraction->GetYaxis()->SetTitle("Number of events");
-  m_selJets_hadEnergyFraction->Sumw2();
+  //m_selJets_hadEnergyFraction->Sumw2();
 
   m_selJets_emEnergyFraction = fs->make<TH1F>("h1_selJets_emEnergyFraction", "Selected CaloJets", 110, 0., 1.1);
   m_selJets_emEnergyFraction->GetXaxis()->SetTitle("EM Energy Fraction");
   m_selJets_emEnergyFraction->GetYaxis()->SetTitle("Number of events");
-  m_selJets_emEnergyFraction->Sumw2();
+  //m_selJets_emEnergyFraction->Sumw2();
 
   m_selJets_towersArea = fs->make<TH1F>("h1_selJets_towersArea", "Selected CaloJets", 200, 0., 2.);
   m_selJets_towersArea->GetXaxis()->SetTitle("towers area");
   m_selJets_towersArea->GetYaxis()->SetTitle("Number of events");
-  m_selJets_towersArea->Sumw2();
+  //m_selJets_towersArea->Sumw2();
 
   m_metDiff = fs->make<TH1F>("h1_metDiff", "Met - MetCleaned", 500, -1000., 1000.);
   m_metDiff->GetXaxis()->SetTitle("met - metcleaned [GeV]");
   m_metDiff->GetYaxis()->SetTitle("Number of events");
-  m_metDiff->Sumw2();
+  //m_metDiff->Sumw2();
 
   m_metCases = fs->make<TH1F>( "h1_metCases", "Met cases", 3, 0., 3.);
   m_metCases->GetXaxis()->SetTitle("case");
   m_metCases->GetYaxis()->SetTitle("Number of events");
-  m_metCases->Sumw2();
+  //m_metCases->Sumw2();
 
   m_metCases->GetXaxis()->SetBinLabel(1,"met , metclean");
   m_metCases->GetXaxis()->SetBinLabel(2,"met , !metclean");
   m_metCases->GetXaxis()->SetBinLabel(3,"!met , metclean");
-  m_metCases->Sumw2();
+  //m_metCases->Sumw2();
 
 
   m_metCaseNoMetClean = fs->make<TH1F>( "h1_metCaseNoMetClean", "Met - MetCleaned", 1000, 0., 2000.);
   m_metCaseNoMetClean->GetXaxis()->SetTitle("MET [GeV]");
   m_metCaseNoMetClean->GetYaxis()->SetTitle("Number of events");
-  m_metCaseNoMetClean->Sumw2();
+  //m_metCaseNoMetClean->Sumw2();
 
   m_HT_inclusive = fs->make<TH1F>( "h1_HT_inclusive", "HT (inclusive)", 150, 0., 15000.);
   m_HT_inclusive->GetXaxis()->SetTitle("HT [GeV]");
   m_HT_inclusive->GetYaxis()->SetTitle("Number of events");
-  m_HT_inclusive->Sumw2(); 
+  //m_HT_inclusive->Sumw2(); 
 
   m_HT_finalSel = fs->make<TH1F>( "h1_HT_finalSel", "HT (final selection)", 150, 0., 15000.);
   m_HT_finalSel->GetXaxis()->SetTitle("HT [GeV]");
   m_HT_finalSel->GetYaxis()->SetTitle("Number of events");
-  m_HT_finalSel->Sumw2(); 
+  //m_HT_finalSel->Sumw2(); 
 
 
   // 2D histograms
   m_DetajjVsMjjWide = fs->make<TH2F>("h2_DetajjVsMjjWide", "#Delta#eta_{jj} vs M_{jj} WideJets", 8000, 0., 8000., 100, 0., 5.);
   m_DetajjVsMjjWide->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_DetajjVsMjjWide->GetYaxis()->SetTitle("#Delta#eta_{jj} WideJets");
-  m_DetajjVsMjjWide->Sumw2();
+  //m_DetajjVsMjjWide->Sumw2();
 
   m_DetajjVsMjjWide_rebin = fs->make<TH2F>("h2_DetajjVsMjjWide_rebin", "#Delta#eta_{jj} vs M_{jj} WideJets", 400, 0., 8000., 50, 0., 5.);
   m_DetajjVsMjjWide_rebin->GetXaxis()->SetTitle("M_{jj} WideJets [GeV]");
   m_DetajjVsMjjWide_rebin->GetYaxis()->SetTitle("#Delta#eta_{jj} WideJets");
-  m_DetajjVsMjjWide_rebin->Sumw2();
+  //m_DetajjVsMjjWide_rebin->Sumw2();
 
   m_metVSmetclean = fs->make<TH2F>("h2_metVSmetclean", "MET clean vs MET", 100, 0., 2000., 100, 0., 2000.);
   m_metVSmetclean->GetXaxis()->SetTitle("MET [GeV]");
   m_metVSmetclean->GetYaxis()->SetTitle("MET clean [GeV]");
-  m_metVSmetclean->Sumw2();
+  //m_metVSmetclean->Sumw2();
 
 /////////////////////////////////////////BOOK THE HISTOGRAMS/////////////////////////////////////////////
 
@@ -321,7 +321,8 @@ DiJetVarProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
    iEvent.getByLabel(inputJetTag_,calojets_handle);
    iEvent.getByLabel("hltKT6CaloJets","rho",dsRho);
-   iEvent.getByLabel("hltPixelVertices",recVtxs);
+   //iEvent.getByLabel("hltPixelVertices",recVtxs);
+   
 
    TLorentzVector wj1_tmp;
    TLorentzVector wj2_tmp;
@@ -378,16 +379,20 @@ DiJetVarProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
        // Create wide jets (radiation recovery algorithm)
 
-
 	   for(reco::CaloJetCollection::const_iterator it = calojets_handle->begin(); it != calojets_handle->end(); ++it)
 		{
 		   TLorentzVector currentJet;
 	       CaloJet correctedJet = *it;
 	       int i=0;
-	        pileupcorr= 1-((*dsRho)*correctedJet.jetArea())/correctedJet.pt();
+	        pileupcorr= 1-((*dsRho-1.08)*correctedJet.jetArea())/correctedJet.pt();
+	        
 	        if(pileupcorr > 0. || pileupcorr < 1.) correctedJet.scaleEnergy(pileupcorr);
 
-	        if(recVtxs->size()<=20)hPUCorr[recVtxs->size()-1]->Fill(correctedJet.eta(),pileupcorr,1);
+	        /*if(recVtxs->size()<=20 )
+	        {	
+	        	hPUCorr[recVtxs->size()-1]->Fill(correctedJet.eta(),pileupcorr,1);
+	        }*/
+
 	        scaleL2L3  = corrector->correction(correctedJet,iEvent,iSetup);
 	        correctedJet.scaleEnergy(scaleL2L3);
 	        
@@ -401,7 +406,10 @@ DiJetVarProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
 	         // Jet id two leading jets
       		if( (i==0 || i==1) && (it->energyFractionHadronic()>maxHADfraction_ || it->emEnergyFraction()>maxEMfraction_) )
+      		{
 	     		  pass_JetIDtwojets=false;
+	     		  i++;
+      		}
 
        
 
