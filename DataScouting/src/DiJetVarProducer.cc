@@ -438,26 +438,26 @@ DiJetVarProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
         if (useWideJets_) {
             wdijet = wj1 + wj2;
             MJJWide = wdijet.M();
-            //std::cout << "MJJ=" << MJJWide << std::endl;
+            std::cout << "MJJ=" << MJJWide << std::endl;
             DeltaEtaJJWide = fabs(wj1.Eta()-wj2.Eta());
             DeltaPhiJJWide = fabs(wj1.DeltaPhi(wj2));
+            // Putjets in the container
+            math::PtEtaPhiMLorentzVector wj1math(wj1.Pt(), wj1.Eta(), wj1.Phi(), wj1.M());
+            math::PtEtaPhiMLorentzVector wj2math(wj2.Pt(), wj2.Eta(), wj2.Phi(), wj2.M());
+            widejets->push_back( wj1math );
+            widejets->push_back( wj2math );
         } else {
             MJJWide = (FirstLeadingJet + SecondLeadingJet).M();
-            //std::cout << "MJJ=" << MJJWide << std::endl;
+            std::cout << "MJJ=" << MJJWide << std::endl;
             DeltaEtaJJWide = fabs(FirstLeadingJet.Eta()-SecondLeadingJet.Eta());
             DeltaPhiJJWide = fabs(FirstLeadingJet.DeltaPhi(SecondLeadingJet));
+            // Putjets in the container
+            math::PtEtaPhiMLorentzVector wj1math(FirstLeadingJet.Pt(), FirstLeadingJet.Eta(), FirstLeadingJet.Phi(), FirstLeadingJet.M());
+            math::PtEtaPhiMLorentzVector wj2math(SecondLeadingJet.Pt(), SecondLeadingJet.Eta(), SecondLeadingJet.Phi(), SecondLeadingJet.M());
+            widejets->push_back( wj1math );
+            widejets->push_back( wj2math );
         }
-
-
-        // Put widejets in the container
-
-
-        math::PtEtaPhiMLorentzVector wj1math(wj1.Pt(), wj1.Eta(), wj1.Phi(), wj1.M());
-        math::PtEtaPhiMLorentzVector wj2math(wj2.Pt(), wj2.Eta(), wj2.Phi(), wj2.M());
-        widejets->push_back( wj1math );
-        widejets->push_back( wj2math );
     }
-
 
     // Two wide jets
     if( widejets->size() >= 2) {
